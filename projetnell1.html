@@ -3,9 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mini Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            font-size: 1.5rem;
+        }
+        .quiz-container {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        .question {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .options button {
+            display: block;
+            width: 100%;
+            margin: 5px 0;
+            padding: 10px;
+            background: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .options button:hover {
+            background: #555;
+        }
+    </style>
 </head>
 <body>
-    <H1>Hello Word !</H1>
+    <header>Mini Quiz</header>
+    <div class="quiz-container">
+        <div class="question">Quelle est la capitale de la France ?</div>
+        <div class="options">
+            <button onclick="checkAnswer(this, false)">Londres</button>
+            <button onclick="checkAnswer(this, true)">Paris</button>
+            <button onclick="checkAnswer(this, false)">Berlin</button>
+            <button onclick="checkAnswer(this, false)">Madrid</button>
+        </div>
+        <p id="result"></p>
+    </div>
+    <script>
+        function checkAnswer(button, correct) {
+            const result = document.getElementById("result");
+            if (correct) {
+                result.textContent = "Bonne réponse !";
+                result.style.color = "green";
+            } else {
+                result.textContent = "Mauvaise réponse, réessayez !";
+                result.style.color = "red";
+            }
+        }
+    </script>
 </body>
 </html>
